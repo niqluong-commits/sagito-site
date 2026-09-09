@@ -63,7 +63,12 @@
   // The code arrives as ?d=… on the link that brought you here. It is only ever
   // displayed and copied: this page has no network of its own and sends nothing on.
   (function () {
-    var d = new URLSearchParams(location.search).get('d');
+    // The fragment first: a link built by the app puts the code after '#', which is
+    // never sent to the server, so GitHub's logs and any mail scanner that follows
+    // the link never see it. The query string is read too, so links shared before
+    // that change still work.
+    var hash = location.hash.replace(/^#/, '');
+    var d = new URLSearchParams(hash).get('d') || new URLSearchParams(location.search).get('d');
     var route = (location.pathname.split('/').filter(Boolean).pop() || 'invite').toUpperCase();
     if (!d) return;
     var code = 'SAGITO-' + route + '-' + d;
