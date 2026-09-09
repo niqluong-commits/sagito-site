@@ -63,12 +63,29 @@
   // The code arrives as ?d=… on the link that brought you here. It is only ever
   // displayed and copied: this page has no network of its own and sends nothing on.
   (function () {
-    // The fragment first: a link built by the app puts the code after '#', which is
-    // never sent to the server, so GitHub's logs and any mail scanner that follows
-    // the link never see it. The query string is read too, so links shared before
-    // that change still work.
-    var hash = location.hash.replace(/^#/, '');
-    var d = new URLSearchParams(hash).get('d') || new URLSearchParams(location.search).get('d');
+    /**
+     * Read the payload WITHOUT decoding it.
+     *
+     * The app percent-encodes the JSON once, and the text code it expects carries
+     * that same single layer. `URLSearchParams.get` decodes, so building the code
+     * from its result handed the app raw JSON and the app decoded a second time.
+     * Ordinary names survived that; a household called "100% Club" was rejected as
+     * malformed, and "Team %41" silently arrived as "Team A". Spaces came back too,
+     * defeating the whole point of a code with none in it.
+     *
+     * So the raw substring is taken exactly as written. One layer in, one layer out.
+     * See docs/CODE-AUDIT-2026-09-09.md D5.
+     *
+     * The fragment is read first: a link built by the app puts the code after '#',
+     * which is never sent to the server, so GitHub's logs and any mail scanner that
+     * follows the link never see it. The query string is read too, so links shared
+     * before that change still work.
+     */
+    function rawParam(source) {
+      var m = /[?#&]d=([^&]*)/.exec(source || '');
+      return m && m[1] !== '' ? m[1] : null;
+    }
+    var d = rawParam(location.hash) || rawParam(location.search);
     var route = (location.pathname.split('/').filter(Boolean).pop() || 'invite').toUpperCase();
     if (!d) return;
     var code = 'SAGITO-' + route + '-' + d;
