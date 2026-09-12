@@ -21,3 +21,5 @@ the path it was served at, so a new code type needs a new directory here.
 one custom domain per repository and two documents needed two addresses. The old
 subdomain should redirect rather than 404 — a privacy URL given to an app store ought
 to keep working.
+
+Support images are unchanged approved assets from the app repository: `assets/brand/sagito-logo-horizontal.svg` and `docs/store-assets/screenshots-marketing/{2-cards,1-home,4-campsite}.png` (7 September 2026 captures). Recopy updated approved screenshots when the source set changes; do not paint over the captured UI.

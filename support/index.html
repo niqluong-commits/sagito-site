@@ -9,18 +9,30 @@
   :root { --green:#2F7D6E; --ink:#14302A; --paper:#F4F8F6; --light:#55736A; }
   body { margin:0; background:var(--paper); color:var(--ink);
     font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
-  .wrap { max-width:600px; margin:0 auto; padding:64px 24px; }
+  .wrap { max-width:1000px; margin:0 auto; padding:64px 24px; }
   h1 { font-size:31px; margin:0 0 8px; letter-spacing:-.01em; }
   h2 { font-size:20px; margin:34px 0 8px; letter-spacing:-.01em; }
   p { color:var(--light); margin:0 0 26px; }
   h2 + p { margin-bottom:18px; }
   a.block { color:var(--green); display:block; margin:0 0 12px; font-weight:650; }
   p a { color:var(--green); font-weight:650; }
+  .wrap > p, .wrap > h2, #adventure, section[aria-labelledby="adventure"] > p { max-width:640px; }
+  .logo { display:block; width:230px; max-width:100%; height:auto; margin-bottom:24px; }
+  .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin:32px 0 40px; }
+  figure { margin:0; min-width:0; }
+  .gallery a { display:block; border-radius:18px; overflow:hidden; box-shadow:0 8px 24px #14302a18; }
+  .gallery img { display:block; width:100%; height:auto; }
+  figcaption { margin-top:12px; font-size:16px; color:var(--ink); font-weight:600; }
+  a:focus-visible { outline:3px solid var(--green); outline-offset:5px; }
+  @media (max-width:600px) {
+    .wrap { padding:32px 20px; }
+    .gallery { grid-template-columns:1fr; max-width:360px; margin-inline:auto; gap:28px; }
+  }
 </style>
 </head>
 <body>
 <main class="wrap">
-  <h1>Sagito</h1>
+  <h1><img class="logo" src="images/sagito-logo.svg" width="384" height="138" alt="Sagito"></h1>
   <a class="block" href="#support">Need a hand? Get help with Sagito</a>
 
   <section aria-labelledby="adventure">
@@ -29,6 +41,27 @@
     alike. Sagito brings encouragement, companionship and a little adventure to each
     step, helping young explorers build confidence and enjoy learning alongside
     friends and family.</p>
+
+    <div class="gallery" aria-label="Explore the Sagito app">
+      <figure>
+        <a href="images/2-cards.png" aria-label="View the wildlife card collection screenshot at full size">
+          <img src="images/2-cards.png" width="1080" height="1920" alt="Sagito’s illustrated Red Fox, Jay, Hedgehog and Tawny Owl cards, with options to choose a companion." decoding="async">
+        </a>
+        <figcaption>Wildlife cards to discover and swap</figcaption>
+      </figure>
+      <figure>
+        <a href="images/1-home.png" aria-label="View the home screen screenshot at full size">
+          <img src="images/1-home.png" width="1080" height="1920" alt="The Sagito home screen with an explorer’s campsite, practice progress and colourful subject choices." decoding="async">
+        </a>
+        <figcaption>A welcoming place to practise</figcaption>
+      </figure>
+      <figure>
+        <a href="images/4-campsite.png" aria-label="View the campsite screenshot at full size">
+          <img src="images/4-campsite.png" width="1080" height="1920" alt="An explorer’s campsite with collected items and options to send a gift to a friend or swap with family." loading="lazy" decoding="async">
+        </a>
+        <figcaption>A little adventure to share</figcaption>
+      </figure>
+    </div>
 
     <p>With maths, English, verbal and non-verbal reasoning, Sagito helps children
     practise important skills and discover new ways to solve problems. Manageable
