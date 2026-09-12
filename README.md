@@ -7,8 +7,9 @@ The public pages for **Sagito**, served by GitHub Pages at **info.sagito.app**.
 | `/privacy` | Privacy notice | `docs/legal/privacy-public.html` in the app repo |
 | `/invite`, `/gift`, `/swap` | Where a shared code lands | `docs/legal/join-public.html` in the app repo |
 | `/` | A short index | this repo only |
+| `/support` | App introduction and help | this repo only |
 
-**Edit the app repo, not this one.** Both pages are generated from
+**For privacy and shared-code pages, edit the app repo, not this one.** Those pages are sourced from
 `niqluong-commits/sagito` and copied here; `docs/legal/PRIVACY.md` records the route,
 and `docs/legal/joinPage.test.mjs` checks the landing page still builds a code the app
 will accept. A change made only here is a change the tests cannot see.
