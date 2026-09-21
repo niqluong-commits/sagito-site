@@ -1,27 +1,53 @@
-<title>Sagito</title>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Sagito — 11+ practice a child wants to open</title>
+<meta name="description" content="Sagito is 11+ practice for maths, English, verbal and non-verbal reasoning. 5,000 questions, 2,000 of them free, no account and no adverts — everything stays on your child's device.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  :root { --green:#2F7D6E; --ink:#14302A; --paper:#F4F8F6; --light:#55736A; --tint:#DCEBE5; }
+  :root { --green:#2F7D6E; --ink:#14302A; --paper:#F4F8F6; --light:#55736A; --border:#D8E3DE; --tint:#DCEBE5; }
   body { margin:0; background:var(--paper); color:var(--ink);
     font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
-  .wrap { max-width:600px; margin:0 auto; padding:64px 24px; }
+  .wrap { max-width:1000px; margin:0 auto; padding:64px 24px; }
   h1 { font-size:31px; margin:0 0 8px; letter-spacing:-.01em; }
+  h2 { font-size:20px; margin:34px 0 8px; letter-spacing:-.01em; }
   p { color:var(--light); margin:0 0 26px; }
-  a { color:var(--green); display:block; margin:0 0 12px; font-weight:650; }
-  .get { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 26px; }
+  h2 + p, h2 + ul { margin-bottom:18px; }
+  ul { color:var(--light); margin:0 0 26px; padding-left:22px; }
+  li { margin:0 0 8px; }
+  a.block { color:var(--green); display:block; margin:0 0 12px; font-weight:650; }
+  p a, li a { color:var(--green); font-weight:650; }
+  .wrap > p, .wrap > h2, .wrap > ul, #adventure,
+  section[aria-labelledby="adventure"] > p, section[aria-labelledby="adventure"] > ul { max-width:640px; }
+  .logo { display:block; width:230px; max-width:100%; height:auto; margin-bottom:24px; }
+  .lede { font-size:20px; color:var(--ink); max-width:640px; }
+  .get { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 14px; }
   /* Apple's badge, unaltered. The padding is the clear space their guidelines require:
      at least a tenth of the badge's height on every side. */
-  a.badge { display:inline-block; margin:0; padding:6px; }
+  a.badge { display:inline-block; padding:6px; }
   a.badge img { display:block; height:52px; width:auto; }
   a.badge:active { opacity:.85; }
   .soon { color:var(--light); font-size:15px; margin:0; }
+  .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin:32px 0 40px; }
+  figure { margin:0; min-width:0; }
+  .gallery a { display:block; border-radius:18px; overflow:hidden; box-shadow:0 8px 24px #14302a18; }
+  .gallery img { display:block; width:100%; height:auto; }
+  figcaption { margin-top:12px; font-size:16px; color:var(--ink); font-weight:600; }
+  .rule { border:0; border-top:1px solid var(--border); margin:48px 0 0; max-width:640px; }
+  a:focus-visible { outline:3px solid var(--green); outline-offset:5px; }
   footer { margin-top:56px; padding-top:18px; border-top:1px solid var(--tint);
     color:var(--light); font-size:14px; }
+  @media (max-width:600px) {
+    .wrap { padding:32px 20px; }
+    .gallery { grid-template-columns:1fr; max-width:360px; margin-inline:auto; gap:28px; }
+  }
 </style>
-<div class="wrap">
-  <h1>Sagito</h1>
-  <p>An 11+ practice app for children. Everything it knows stays on the device it is
-  installed on — there is no account and no sign-in.</p>
+</head>
+<body>
+<main class="wrap">
+  <h1><img class="logo" src="/images/sagito-logo.svg" width="384" height="138" alt="Sagito"></h1>
+  <a class="block" href="/support">Need a hand? Get help with Sagito</a>
 
   <!--
     The App Store link is the id form rather than Apple's canonical slug URL: the slug is
@@ -35,21 +61,158 @@
     hash.
 
     PLAY: no Google Play button yet — vc34 is in review and the listing 404s. When it is
-    live, add Google's own badge here pointing at
-    https://play.google.com/store/apps/details?id=io.qnl.sagito and delete the .soon line.
-    Google's badge carries its own built-in padding, so match the two on the height of the
-    artwork rather than the height of the file, or Apple's will look larger.
-  -->
-  <div class="get">
-    <a class="badge" href="https://apps.apple.com/gb/app/id6810705803"><img src="/badges/download-on-the-app-store.svg" width="120" height="40" alt="Download Sagito on the App Store"></a>
-    <p class="soon">Coming to Google Play soon.</p>
-  </div>
+    live, add Google's own badge here and in the block lower down, and delete both .soon
+    lines. Google's badge carries its own built-in padding, so match the two on the height
+    of the artwork rather than the height of the file, or Apple's will look larger.
 
-  <a href="/support">What Sagito is, and how to get help</a>
-  <a href="/privacy">Privacy policy</a>
+    EVERY CLAIM ON THIS PAGE comes from docs/STORE-LISTING.md in the app repository, which
+    is the description Apple reviewed. Its "What has to be true before this is published"
+    table says how to re-check each number, and "Things deliberately not claimed" says what
+    must never be added: no outcome promise, no exam-board endorsement, no urgency.
+    The counts were verified on 21 September 2026 with `node data/free-tier.test.mjs`
+    (2,000 free of 5,000) and `node data/bands.test.mjs`.
+  -->
+  <section aria-labelledby="adventure">
+    <h2 id="adventure">Big dreams. Small steps. A little adventure every day.</h2>
+    <p class="lede">Sagito is 11+ practice that a child actually wants to open. Every
+    question answered moves an expedition forward — there are wildlife cards to find,
+    coins to earn and a camp that becomes their own. The practice is real and the reward
+    is theirs.</p>
+
+    <div class="get">
+      <a class="badge" href="https://apps.apple.com/gb/app/id6810705803"><img src="/badges/download-on-the-app-store.svg" width="120" height="40" alt="Download Sagito on the App Store"></a>
+      <p class="soon">Coming to Google Play soon.</p>
+    </div>
+
+    <div class="gallery" aria-label="Explore the Sagito app">
+      <figure>
+        <a href="/images/1-home.png" aria-label="View the a welcoming place to practise screenshot at full size">
+          <img src="/images/1-home.png" width="1080" height="1920" alt="The Sagito home screen with an explorer’s campsite, practice progress and colourful subject choices." decoding="async">
+        </a>
+        <figcaption>A welcoming place to practise</figcaption>
+      </figure>
+      <figure>
+        <a href="/images/2-cards.png" aria-label="View the wildlife cards to discover and swap screenshot at full size">
+          <img src="/images/2-cards.png" width="1080" height="1920" alt="Sagito’s illustrated Red Fox, Jay, Hedgehog and Tawny Owl cards, with options to choose a companion." decoding="async">
+        </a>
+        <figcaption>Wildlife cards to discover and swap</figcaption>
+      </figure>
+      <figure>
+        <a href="/images/4-campsite.png" aria-label="View the a camp that becomes theirs screenshot at full size">
+          <img src="/images/4-campsite.png" width="1080" height="1920" alt="An explorer’s campsite with collected items and options to send a gift to a friend or swap with family." decoding="async">
+        </a>
+        <figcaption>A camp that becomes theirs</figcaption>
+      </figure>
+      <figure>
+        <a href="/images/3-shop.png" aria-label="View the coins earned by practising, never bought screenshot at full size">
+          <img src="/images/3-shop.png" width="1080" height="1920" alt="The Sagito shop, showing items that can be bought with coins earned by practising." loading="lazy" decoding="async">
+        </a>
+        <figcaption>Coins earned by practising, never bought</figcaption>
+      </figure>
+      <figure>
+        <a href="/images/5-progress.png" aria-label="View the grown-ups see where the work is needed screenshot at full size">
+          <img src="/images/5-progress.png" width="1080" height="1920" alt="A progress screen showing level, accuracy by subject and how much practice has been done." loading="lazy" decoding="async">
+        </a>
+        <figcaption>Grown-ups see where the work is needed</figcaption>
+      </figure>
+      <figure>
+        <a href="/images/6-exams.png" aria-label="View the timed papers, when they are ready screenshot at full size">
+          <img src="/images/6-exams.png" width="1080" height="1920" alt="Challenge mode offering timed papers of different lengths." loading="lazy" decoding="async">
+        </a>
+        <figcaption>Timed papers, when they are ready</figcaption>
+      </figure>
+    </div>
+
+    <h2>Four subjects, 5,000 questions</h2>
+    <ul>
+      <li><strong>Mathematics</strong> — number, fractions, geometry, data and word problems</li>
+      <li><strong>English</strong> — comprehension, grammar, spelling, vocabulary and sentences</li>
+      <li><strong>Verbal reasoning</strong> — codes, letter patterns, analogies, synonyms and hidden words</li>
+      <li><strong>Non-verbal reasoning</strong> — matrices, series, odd one out, reflection, rotation and hole punch</li>
+    </ul>
+    <p><strong>2,000 of the 5,000 questions are free</strong>, permanently and with no
+    daily cap — around six months of daily practice before anything is asked of you.</p>
+
+    <h2>It finds the right level on its own</h2>
+    <p>Sagito works out where a child is from their first set of answers, and moves with
+    them question by question. An explorer who is finding it hard meets warm-ups; one who
+    is flying gets stretched. There is no level to choose and nothing to configure, and the
+    difficulty never caps how far anyone can go.</p>
+
+    <h2>Practice never stops</h2>
+    <p>No daily limit, no energy meter, no countdown. When every free question has been
+    seen, Sagito keeps going and serves the ones met least often first. An explorer is
+    never stopped mid-session and asked to buy something.</p>
+
+    <h2>Shaped for particular schools</h2>
+    <p>Some children are working towards one school in particular. School focus has sets in
+    the style of five of them — Queen Elizabeth’s (Barnet), St Olave’s, Wilson’s,
+    Henrietta Barnett and Tiffin Girls’ — so a child on one of those paths can practise the
+    kinds of question that school has set before. Every question in School focus is Stretch
+    level or harder.</p>
+
+    <h2>Every explorer deserves a companion</h2>
+    <p>A friendly companion offers encouragement, tells a few jokes and shares fun facts —
+    bringing a smile to practice time and helping children feel supported as they learn.
+    The adventure is better shared, too: children can swap cards and gift items with
+    friends and family, as a request the other can decline rather than something that
+    happens to them.</p>
+
+    <h2>More than one explorer</h2>
+    <p>Each explorer keeps their own progress, cards and camp, and each can have a PIN so a
+    brother or sister cannot answer in their place.</p>
+
+    <h2>For the grown-ups</h2>
+    <p>A PIN-protected area shows how each explorer is doing by subject and topic, which
+    areas need work, and how much practice they have done. Purchases live behind that PIN
+    and nowhere else. Nothing is ever sold to a child.</p>
+
+    <h2>There is no Sagito server</h2>
+    <p>No account, no sign-in, no advertising and no analytics. Nothing your child does is
+    collected, transmitted or seen by us, because there is nowhere for it to go —
+    everything stays on the device. The only network conversation the app has is with Apple
+    or Google about a purchase, and it carries nothing about your child.
+    <a href="/privacy">Read the privacy notice</a>.</p>
+
+    <h2>What costs money</h2>
+    <p>Everything above is free. Two optional purchases sit in the grown-up area, behind
+    the parent PIN and nowhere else:</p>
+    <ul>
+      <li><strong>Extra camps, £2.99 once</strong> — four new places to pitch camp, with
+      two items for each. Decoration only; they give no advantage in any question or score.</li>
+      <li><strong>Sagito Plus, £3.99 a month or £39.99 a year</strong> — every question in
+      the main bank of 5,000, every school set in full, and the four extra camps included.</li>
+    </ul>
+    <p>Neither is needed, and nothing an explorer has earned is taken away if a
+    subscription ends.</p>
+
+    <h2>Kept accurate</h2>
+    <p>Questions are reviewed and updated as and when it is needed — to correct anything
+    found to be wrong, and to keep pace with changes to the 11+ curriculum and how it is
+    examined. Updates reach everyone, free and paid alike.</p>
+
+    <p><strong>Sagito is made in the UK, for the UK 11+. Help your young explorer take
+    their next step.</strong></p>
+
+    <div class="get">
+      <a class="badge" href="https://apps.apple.com/gb/app/id6810705803"><img src="/badges/download-on-the-app-store.svg" width="120" height="40" alt="Download Sagito on the App Store"></a>
+      <p class="soon">Coming to Google Play soon.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <hr class="rule">
+
+  <h2>Anything else</h2>
+  <a class="block" href="/support">Help with Sagito, and how to get in touch</a>
+  <a class="block" href="/privacy">Privacy notice</a>
   <p>If somebody sent you a code, open the link they sent rather than this page.</p>
+
+  <p>Sagito is not affiliated with any exam board or school. Questions are ours, not any
+  school&rsquo;s own papers.</p>
 <footer>&copy; <span id="cy">2026</span> QNL LTD</footer>
-</div>
+</main>
 <script>
 /* The copyright year: a fixed first year and a clock-following end, matching
    constants/legal.ts in the app repository. Without JavaScript the markup already
@@ -57,6 +220,8 @@
 (function () {
   var now = new Date().getFullYear();
   var el = document.getElementById('cy');
-  if (el && now > 2026) el.textContent = '2026–' + now;
+  if (el && now > 2026) el.textContent = '2026\u2013' + now;
 })();
 </script>
+</body>
+</html>
