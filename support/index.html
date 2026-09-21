@@ -15,6 +15,13 @@
   p { color:var(--light); margin:0 0 26px; }
   h2 + p { margin-bottom:18px; }
   a.block { color:var(--green); display:block; margin:0 0 12px; font-weight:650; }
+  .get { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 14px; }
+  /* Apple's badge, unaltered. The padding is the clear space their guidelines require:
+     at least a tenth of the badge's height on every side. */
+  a.badge { display:inline-block; padding:6px; }
+  a.badge img { display:block; height:52px; width:auto; }
+  a.badge:active { opacity:.85; }
+  .soon { color:var(--light); font-size:15px; margin:0; }
   p a { color:var(--green); font-weight:650; }
   .wrap > p, .wrap > h2, #adventure, section[aria-labelledby="adventure"] > p { max-width:640px; }
   .logo { display:block; width:230px; max-width:100%; height:auto; margin-bottom:24px; }
@@ -33,6 +40,27 @@
 <body>
 <main class="wrap">
   <h1><img class="logo" src="images/sagito-logo.svg" width="384" height="138" alt="Sagito"></h1>
+  <!--
+    The App Store link is the id form rather than Apple's canonical slug URL: the slug is
+    built from the app name and would break if the name ever changed, while
+    /app/id6810705803 will not. The id is `ascAppId` in eas.json in the app repository.
+
+    The badge is Apple's own artwork, downloaded from their badge API and used unaltered,
+    which is what their marketing guidelines require — a hand-styled lookalike is not
+    allowed. Do not recolour it, rotate it, put effects behind it or render it below 40px
+    tall. The copy in the app repository is docs/legal/badges/, and a test there pins its
+    hash.
+
+    PLAY: no Google Play button yet — vc34 is in review and the listing 404s. When it is
+    live, add Google's own badge here and in the block lower down, pointing at
+    https://play.google.com/store/apps/details?id=io.qnl.sagito, and delete both .soon
+    lines. Google's badge carries its own built-in padding, so match the two on the height
+    of the artwork rather than the height of the file, or Apple's will look larger.
+  -->
+  <div class="get">
+    <a class="badge" href="https://apps.apple.com/gb/app/id6810705803"><img src="/badges/download-on-the-app-store.svg" width="120" height="40" alt="Download Sagito on the App Store"></a>
+    <p class="soon">Coming to Google Play soon.</p>
+  </div>
   <a class="block" href="#support">Need a hand? Get help with Sagito</a>
 
   <section aria-labelledby="adventure">
@@ -85,6 +113,11 @@
     curiosity that lasts beyond the exam.</p>
 
     <p><strong>Help your young explorer take their next step with Sagito.</strong></p>
+
+    <div class="get">
+      <a class="badge" href="https://apps.apple.com/gb/app/id6810705803"><img src="/badges/download-on-the-app-store.svg" width="120" height="40" alt="Download Sagito on the App Store"></a>
+      <p class="soon">Coming to Google Play soon.</p>
+    </div>
   </section>
 
   <h2 id="support" tabindex="-1">Support — getting in touch</h2>

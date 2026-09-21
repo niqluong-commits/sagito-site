@@ -17,6 +17,8 @@
   th, td { text-align:left; padding:9px 12px 9px 0; border-bottom:1px solid var(--border); vertical-align:top; }
   th { font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--light); }
   a { color:var(--green); }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--border);
+    color:var(--light); font-size:14px; }
 </style>
 <div class="wrap">
 <h1>Sagito — Privacy Policy</h1>
@@ -87,4 +89,15 @@
 <p>The other change on the horizon is payment, covered above.</p>
 <h3>Changes to this policy</h3>
 <p>If this changes we will say so in the app before the change takes effect, and the date at the top will be updated.</p>
+<footer>&copy; <span id="cy">2026</span> QNL LTD</footer>
 </div>
+<script>
+/* The copyright year: a fixed first year and a clock-following end, matching
+   constants/legal.ts. Without JavaScript the markup already reads "© 2026",
+   which is correct rather than merely graceful. */
+(function () {
+  var now = new Date().getFullYear();
+  var el = document.getElementById('cy');
+  if (el && now > 2026) el.textContent = '2026\u2013' + now;
+})();
+</script>
