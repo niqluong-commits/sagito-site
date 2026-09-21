@@ -35,12 +35,19 @@
   .gallery img { display:block; width:100%; height:auto; }
   figcaption { margin-top:12px; font-size:16px; color:var(--ink); font-weight:600; }
   .rule { border:0; border-top:1px solid var(--border); margin:48px 0 0; max-width:640px; }
+  .cards { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px; margin:24px 0 32px; }
+  .cards img { display:block; width:100%; height:auto; border-radius:14px;
+    box-shadow:0 6px 18px #14302a14; }
+  .items { display:flex; flex-wrap:wrap; align-items:center; gap:26px; margin:24px 0 8px; }
+  .items img { display:block; width:72px; height:72px; }
   a:focus-visible { outline:3px solid var(--green); outline-offset:5px; }
   footer { margin-top:56px; padding-top:18px; border-top:1px solid var(--tint);
     color:var(--light); font-size:14px; }
   @media (max-width:600px) {
     .wrap { padding:32px 20px; }
     .gallery { grid-template-columns:1fr; max-width:360px; margin-inline:auto; gap:28px; }
+    .cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .items { gap:20px; justify-content:center; }
   }
 </style>
 </head>
@@ -123,6 +130,47 @@
       </figure>
     </div>
 
+    <!--
+      The card paintings are the SIGNED-OFF production art, taken from
+      docs/card-art-signed-off.json in the app repository and resampled to 420px wide —
+      the same art the app a visitor downloads actually contains. Codex has a colour pass
+      in flight under docs/card-sky-harmony/; its own REVIEW.md calls those review
+      candidates pending explicit sign-off, so they are deliberately not used here. When a
+      batch is signed off and integrated, re-copy from the manifest rather than from a
+      review folder.
+
+      The item drawings are rendered from the production components in
+      components/basecamp/ by scripts/site/render-item-art.mjs, so the site cannot drift
+      from the app's own geometry. Re-run it rather than hand-editing an SVG here.
+    -->
+    <h2>Forty wildlife cards, painted for Sagito</h2>
+    <p>Every card is an original painting of British wildlife, and each one has an evolved
+    form to find as an explorer goes on. They are earned by practising — never bought, and
+    never behind a countdown.</p>
+
+    <div class="cards" aria-label="Five of the forty wildlife cards">
+      <img src="/images/cards/red-fox.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The Red Fox card, painted for Sagito — one of the eight forest cards.">
+      <img src="/images/cards/kingfisher.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The Kingfisher card, painted for Sagito — one of the eight river cards.">
+      <img src="/images/cards/mountain-hare.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The Mountain Hare card, painted for Sagito — one of the eight mountain cards.">
+      <img src="/images/cards/grey-seal.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The Grey Seal card, painted for Sagito — one of the eight beach cards.">
+      <img src="/images/cards/robin.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The Robin card, painted for Sagito — one of the eight hedgerow cards.">
+    </div>
+
+    <h2>And a camp to spend the coins on</h2>
+    <p>Everything in the camp is drawn for Sagito too, from the tent to the lantern. Coins
+    come from practice alone, so a camp is a record of work done rather than money spent.</p>
+
+    <div class="items" aria-label="Some of the items an explorer can collect">
+      <img src="/images/items/explorer-tent.svg" width="72" height="72" loading="lazy" alt="a tent">
+      <img src="/images/items/compass.svg" width="72" height="72" loading="lazy" alt="a compass">
+      <img src="/images/items/rucksack.svg" width="72" height="72" loading="lazy" alt="a rucksack">
+      <img src="/images/items/binoculars.svg" width="72" height="72" loading="lazy" alt="binoculars">
+      <img src="/images/items/canoe.svg" width="72" height="72" loading="lazy" alt="a canoe">
+      <img src="/images/items/guitar.svg" width="72" height="72" loading="lazy" alt="a guitar">
+      <img src="/images/items/star-lantern.svg" width="72" height="72" loading="lazy" alt="a lantern">
+      <img src="/images/items/conch-shell.svg" width="72" height="72" loading="lazy" alt="a conch shell">
+    </div>
+
     <h2>Four subjects, 5,000 questions</h2>
     <ul>
       <li><strong>Mathematics</strong> — number, fractions, geometry, data and word problems</li>
@@ -193,9 +241,9 @@
     and with no daily cap, is a deliberate choice: we would rather as many children as
     possible could practise than put the whole bank behind a paywall.</p>
     <p>That is what a subscription supports. It pays for questions to be written,
-    reviewed and corrected, for the bank to keep pace with the 11+ as it changes, and for
-    the work of keeping the app running well on the phones and tablets families actually
-    own. Every update reaches everyone, free and paid alike. If Sagito is useful to your
+    reviewed and corrected, for new wildlife cards and camp items to be illustrated, for
+    the bank to keep pace with the 11+ as it changes, and for the work of keeping the app
+    running well on the phones and tablets families actually own. Every update reaches everyone, free and paid alike. If Sagito is useful to your
     explorer, subscribing is what keeps it being made — and keeps it open to families who
     cannot.</p>
 
